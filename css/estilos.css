@@ -1,0 +1,22 @@
+main {
+    padding: 10px;
+}
+
+.mdl-button {
+    margin-left: 30px;
+}
+
+/* modificamos el boton borrar para que no se pase de la pantalla */
+
+.boton-borrar {
+    font-size: 0.7em; /* 70 px del equivalente en px */
+    padding: 0;
+}
+
+/* separamos los costamos del input y el label de los botones, y achicamos su width */
+
+.mdl-textfield {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 80%;
+}
