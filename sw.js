@@ -1,71 +1,33 @@
-// version de la app y nombre del cache
-
-const version = "1.0.0"
-const cacheName = `miappuser-${version}`
-
-// un addevent sobre si mismo en install, cuyo
-// cb nos avisa que ya esta instalado.
-// Ademas, hacemos que el evento espere hasta que
-// el cache abra.
-// Despues (.then, promise), agregamos al cache un
-// array de rutas que van a ser cacheadas.
-// Ademas, una promesa luego de eso que haga
-// skipWaiting, que fuerza al evento esperando
-// a convertirse en service worker.
-
-self.addEventListener("install", e => {
-
-    console.log("SW installed")
-
+const version = "1.0.0";
+const cacheName = `miappuser-${version}`;
+self.addEventListener('install' , e => {
+    console.log('sw install');
     e.waitUntil(
-
-        caches.open(cacheName)
-        
-        .then(cache => {
-
+        caches.open(cacheName).then(cache => {
             return cache.addAll([
-
-                "/",
-                "/index.html",
-                "/js/main.js",
+                '/',
+                '/index.html',
+                '/js/main.js'
             ])
-
-            .then( () => self.skipWaiting() )
+            .then(() => self.skipWaiting());
         })
-    )
+    );
+});
+
+self.addEventListener('activate',event => {
+    console.log('sw activate')
+    event.waitUntil(self.clients.claim());
 })
 
-// una vez cargado, cuando se active, hacemos que
-// quede esperando hasta que un cliente accione
-
-self.addEventListener("activate", e => {
-
-    console.log("SW Activated")
-
-    e.waitUntil(self.clients.claim())
-})
-
-// y aca, cuando entran los pedidos de la app.
-// Podemos hacer lo que querramos aca, nosotros respondemos
-// con la apertura y lectura del cache.
-// Si el cache es igual a lo buscado por el request,
-// lo retornamos (esta en el cache). 
-// Si no, busca en el backend si o si, o devuelve null.
-// Si hay internet, la PWA siempre pide al backend.
-
-self.addEventListener("fetch", e => {
-    
-    console.log("SW Fetch")
-
-    e.respondWith(
-
+self.addEventListener('fetch', event => {
+    console.log('sw fetch');
+    event.respondWith(
         caches.open(cacheName)
-        
-        .then(cache => cache.match(
-            e.request, {ignoreSearch: true}))
-
-        .then(response => {
-            return response || fetch(e.request)
+        .then(cache => cache.match(event.request, {ignoreSearch: true}))
+        .then( response => {
+            return response || fetch(event.request);
         })
-    )
-})
+    );
+});
+
+

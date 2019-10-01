@@ -1,10 +1,9 @@
 {
-  "name": "Shopping list",
-  "short_name": "Shopping list",
+  "name": "Super: Lista de compras",
+  "short_name": "Super Lista",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "standalone",
-  "Scope": "/",
   "start_url": "/index.html",
   "icons": [
     {
@@ -47,6 +46,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "splash_pages": null
+  ]
 }

@@ -1,21 +1,13 @@
 console.log('Super: Lista de compras')
 
-// Si el service worker existe en el entorno, llamalo y 
-// registra el service worker que creamos.
-// Avisanos que lo hiciste con una promesa retornada,
-// y si no pudiste, tambien avisanos con un catch
-
 if('serviceWorker' in navigator) {
-
     navigator.serviceWorker.register('./sw.js')
-
-    .then(function(req) {
-        console.log('Service worker registrado!', req)
+    .then( function(reg) {
+        console.log('Service Worker registrado Exitósamente', reg);
     })
-
     .catch(function(err) {
-        console.log("Error en registracion de SW", err)
-    })
+        console.log('Error registrando el Service Worker', err);
+    });
 }
 
 
