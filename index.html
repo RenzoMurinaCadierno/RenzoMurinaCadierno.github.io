@@ -51,6 +51,10 @@
 
                 <main>
 
+                    <!-- <div class="prueba-jquery">Prueba de JQuery</div> 
+
+                    <br><br> -->
+
                     <!-- <input id="producto" type="text"> -->
                     <div class="mdl-textfield mdl-js-textfield">
                         <input class="mdl-textfield__input" type="text" id="producto">
@@ -67,7 +71,7 @@
                         Lista
                     </button>
 
-                    <ul class="demo-list-item mdl-list" id="lista"></ul>
+                    <div id="lista"></div>
 
                 </main>
 
@@ -75,6 +79,51 @@
         </main>
     </div>
 
+
+    <!-- HANDLEBARS Script -->
+
+    <script id="listaTemplate" type="text/x-handlebars-template">
+
+        <!-- What will be displayed under certain conditions goes here -->
+
+        <ul class="demo-list-item mdl-list">
+
+        <!-- For each element, the { {  } } tag will be repeated -->
+
+            {{#listaDecompras}}
+
+                <li class="mdl-list__item">
+
+                    <!-- nombre Producto -->
+                    <span class="mdl-list__item-primary-content">
+                        {{producto}}
+                    </span>
+                    
+                    <!-- input precio -->
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input class="mdl-textfield__input" value='{{precio}}' onchange="cambiarPrecio(this,{{@index}})" type="text" id="sample${{@index}}">
+                        <label class="mdl-textfield__label" for="sample{{@index}}"></label>
+                    </div>
+                    
+                    <!-- Boton borrar -->
+                    <button onclick="borrar({{@index}})" class="boton-borrar mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                        Borrar
+                    </button>
+                </li>
+
+            {{/listaDecompras}}
+    
+        </ul>
+
+    </script>
+
+    <!-- JQUERY -->
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- HANDLEBARS -->
+    <script src="js/handlebars-v4.3.1.js"></script>
+
+    <!-- OUR JS -->
     <script src="js/main.js"></script>
 
 </body>

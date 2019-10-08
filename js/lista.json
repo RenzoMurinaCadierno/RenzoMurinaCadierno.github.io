@@ -1,0 +1,6 @@
+[
+    { "producto": "Fideos", "precio": 1 },
+    { "producto": "Carne", "precio": 2 },
+    { "producto": "Harina", "precio": 3 },
+    { "producto": "Ravioles", "precio": 4 }
+]
