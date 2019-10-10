@@ -38,7 +38,7 @@ self.addEventListener('install' , e => {
     const cacheImmutable = caches.open(CACHE_IMMUTABLE).then(cache => {
         return cache.addAll([
             'https://fonts.googleapis.com/icon?family=Material+Icons',
-            'http://code.jquery.com/jquery-3.4.1.min.js',
+            'https://code.jquery.com/jquery-3.4.1.min.js',
             'https://code.getmdl.io/1.3.0/material.indigo-pink.min.css',
             'https://code.getmdl.io/1.3.0/material.min.js'
         ])
