@@ -16,3 +16,17 @@ main {
     margin-right: 30px;
     width: 80%;
 }
+
+pre {
+    white-space: pre-wrap;
+    background-color: #EEEEEE;
+    padding: 16px;
+}
+  
+pre code {
+    word-break: break-word;
+}
+
+.is-invisible {
+   opacity: 0;
+}
