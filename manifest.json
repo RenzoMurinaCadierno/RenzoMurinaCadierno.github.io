@@ -1,6 +1,6 @@
 {
-  "name": "Super: Lista de compras",
-  "short_name": "Super Lista",
+  "name": "Market list",
+  "short_name": "Market list",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "standalone",
